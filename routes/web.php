@@ -14,5 +14,29 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.main');
+});
+
+Route::get('/contactus', function () {
+    return view('pages.contactus');
+});
+
+Route::get('/profile/{userID}', function ($userID) {
+    return view('pages.profile');
+});
+
+Route::get('/signup', function () {
+    return view('pages.signup');
+});
+
+Route::get('/signin', function () {
+    return view('pages.signin');
+});
+
+Route::get('/admin/item', function () {
+    return view('pages.admin.item');
+});
+
+Route::get('/admin/items', function () {
+    return view('pages.admin.items');
 });
