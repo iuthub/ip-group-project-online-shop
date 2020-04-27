@@ -13,30 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.main');
-});
+Route::get('/', 'PageController@index');
 
-Route::get('/contactus', function () {
-    return view('pages.contactus');
-});
+Route::get('/contactus', 'PageController@contactus');
 
-Route::get('/profile/{userID}', function ($userID) {
-    return view('pages.profile');
-});
+Route::get('/profile/', 'PageController@profile');
 
-Route::get('/signup', function () {
-    return view('pages.signup');
-});
+Route::get('/signup', 'PageController@signup');
 
-Route::get('/signin', function () {
-    return view('pages.signin');
-});
+Route::get('/signin', 'PageController@signin');
 
-Route::get('/admin/item', function () {
-    return view('pages.admin.item');
-});
+Route::get('/admin/item', 'PageController@adminItem');
 
-Route::get('/admin/items', function () {
-    return view('pages.admin.items');
-});
+Route::get('/admin/items', 'PageController@adminItems');
