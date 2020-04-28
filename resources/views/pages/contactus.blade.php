@@ -9,7 +9,7 @@
     <div class="row align-items-center">
       <div class="col">
         
-        <div class="col-md-4 text-dark">
+        <div class="col text-dark">
             <h1 class="display-5" >Contact Us</h1>
             <p class="lead"> </p>
       </div>
