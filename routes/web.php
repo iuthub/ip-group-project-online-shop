@@ -23,6 +23,10 @@ Route::get('/signup', 'PageController@signup');
 
 Route::get('/signin', 'PageController@signin');
 
+Route::get('/item', 'PageController@item');
+
 Route::get('/admin/item', 'PageController@adminItem');
 
 Route::get('/admin/items', 'PageController@adminItems');
+
+Route::resource('orders', 'OrdersController');
