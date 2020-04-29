@@ -43,9 +43,9 @@ class ProductController extends Controller
             'brand' => 'required',
             'category' => 'required',
             'name' => 'required',
-            'price' => 'required',
+            'price' => 'required|numeric|min:0',
             'description' => 'required',
-            'image' => 'required|max:1999',
+            'image' => 'required|file|image|max:1999',
         ]);
 
         if($request->hasfile('image')){
@@ -54,10 +54,8 @@ class ProductController extends Controller
             $extension = $request->file('image')->getClientOriginalExtension();
             $fileNameToStore = $filename.'_'.time().'.'.$extension;
             $path = $request->file('image')->storeAs('public/images', $fileNameToStore);
-        }else{
-            $fileNameToStore = 'noimage.jpg';
         }
-  
+        
         $product = new Product();
         $product->brand = $request->input('brand');
         $product->category = $request->input('category');
@@ -101,18 +99,19 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
-    {
+    
+    public function update(Request $request, $id){
+
         $request->validate([
             'brand' => 'required',
             'category' => 'required',
             'name' => 'required',
-            'price' => 'required',
+            'price' => 'required|numeric|min:0',
             'description' => 'required',
-            'image' => 'required|max:1999',
+            'image' => 'required|file|image|max:1999',
         ]);
 
-        if($request->hasfile('image')){
+        if($request->hasFile('image')){
             $filenameWithExt = $request->file('image')->getClientOriginalName();
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
             $extension = $request->file('image')->getClientOriginalExtension();
@@ -120,19 +119,17 @@ class ProductController extends Controller
             $path = $request->file('image')->storeAs('public/images', $fileNameToStore);
         }
 
-        //$product = Product::find($id);
-        /*$product->brand = $request->input('brand');
+        $product = Product::find($id);
+        $product->brand = $request->input('brand');
         $product->category = $request->input('category');
         $product->name = $request->input('name');
         $product->price = $request->input('price');
-        $product->description = $request->input('description');*/
-        if($request->hasfile('image')){
+        $product->description = $request->input('description');
+        if($request->hasFile('image')){
             $product->image = $fileNameToStore;
         }
-        //$product->save();
-  
-        //$product->update($request->all());
-  
+        $product->save(); 
+
         return redirect()->route('products.index')
                         ->with('success','Product updated successfully');
     }

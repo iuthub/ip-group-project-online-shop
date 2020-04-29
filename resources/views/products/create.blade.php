@@ -14,7 +14,7 @@
    
 @if ($errors->any())
     <div class="alert alert-danger">
-        <strong>Whoops!</strong> Please, fill our required fields.<br><br>
+        <strong>Whoops!</strong> Please, fill all required fields.<br><br>
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
