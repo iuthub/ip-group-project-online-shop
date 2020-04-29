@@ -13,7 +13,7 @@ class PageController extends Controller
     public function contactus(){
         return view('pages.contactus');
     }
-
+    
     public function item() {
         return view('pages.item');
     }

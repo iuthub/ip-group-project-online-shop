@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
-@endsection
+
 <div class="jubotron jumbotron-fluid ">
   <div class="container">
     <div class="jumbotron">
@@ -18,6 +18,7 @@
     </div>
   </div>
   </div>
+  @endsection
 
 
  
