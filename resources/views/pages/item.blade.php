@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-  <h1>ITEM page</h1>
+  <h1>ITEM page update</h1>
 @endsection

@@ -22,6 +22,8 @@ Route::get('pages/signup', 'SignUpController@signup');
 
 Route::get('pages/signin', 'SignUpController@signin');
 
+Route::get('/item', 'PageController@item');
+
 Route::get('/admin/item', 'PageController@adminItem');
 
 Route::get('/admin/items', 'PageController@adminItems');
