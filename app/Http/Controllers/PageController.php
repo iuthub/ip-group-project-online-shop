@@ -10,7 +10,7 @@ class PageController extends Controller
         return view('pages.index');
     }
 
-    public function contactus() {
+    public function contactus(){
         return view('pages.contactus');
     }
 
