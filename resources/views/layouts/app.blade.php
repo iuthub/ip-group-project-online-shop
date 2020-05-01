@@ -12,18 +12,33 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/object-fit-images/3.2.4/ofi.min.js"></script>
   <style>
+  
   .jumbotron-fluid {
     background-image: url("https://img5.goodfon.com/original/1366x768/8/9b/wood-chocolate-desert-shokolad-pechene-belyi-molochnyi-chern.jpg");
     background-size: cover;
     height: 100%;
+    
   }             
   .jumbotron{
-  background:rgba(0,0,0,0.0001);
+  background: #f2f2f2; 
   text-align: center;
+  margin-left:25%;
+  width: 50%;
+   
   }
-  .col{
+ .form{
+   width : 100% !important;
+ }
+  .container{
+    width : 100%;
+      
     text-align: center;
   }
+
+  .container_1{
+    margin-top:20px;
+  }
+   
   </style>
 </head>
 
@@ -40,22 +55,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-             Products
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Hershey's</a>
-              <a class="dropdown-item" href="#">Milka</a>
-              <a class="dropdown-item" href="#">Mars</a>
-              <a class="dropdown-item" href="#">Nestle</a>
-              <a class="dropdown-item" href="#">Toblerone</a>
-               <a class="dropdown-item" href="#">Lindt</a>
-              <a class="dropdown-item" href="#">Ferrero Rocher</a>
-              <a class="dropdown-item" href="#">Mondelez</a>
-              <a class="dropdown-item" href="#">Crafers</a>
-              <a class="dropdown-item" href="#">Millennium</a>
-              </div>
+          <a class="nav-link" href="/products">Products <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="#">About Us <span class="sr-only">(current)</span></a>
@@ -67,17 +67,16 @@
           <a class="nav-link" href="#">Cart <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="/contactus">Contact Us</a>
+          <a class="nav-link" href="/contact">Contact Us</a>
         </li>
         <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Admin
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Manage Users</a>
-            <a class="dropdown-item" href="#">Manage Ordes</a>
-            <a class="dropdown-item" href="#">Manage Items</a>
-            <a class="dropdown-item" href="#">Manage messages</a>
+            <a class="dropdown-item" href="#">Orders</a>
+            <a class="dropdown-item" href="#">List</a>
+            <a class="dropdown-item" href="#">Add item</a>
           </div>
         </div>      
       </ul>

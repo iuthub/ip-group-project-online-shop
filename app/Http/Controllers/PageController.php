@@ -13,4 +13,16 @@ class PageController extends Controller
     public function contactus(){
         return view('pages.contactus');
     }
+    public function contact_us(){
+        return view('contact_us');
+    }
+    
+    
+    public function adminItem() {
+        return view('pages.admin.item');
+    }
+
+    public function products() {
+        return view('pages.products');
+    }
 }

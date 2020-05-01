@@ -14,8 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'PageController@index');
-
-Route::get('/contactus', 'PageController@contactus');
+ 
 
 Route::get('/profile/', 'PageController@profile');
 
@@ -26,3 +25,13 @@ Route::get('/signin', 'PageController@signin');
 Route::get('/admin/item', 'PageController@adminItem');
 
 Route::get('/admin/items', 'PageController@adminItems');
+
+Route::get('/products', 'PageController@products');
+
+ 
+
+Route::get('/contact', 'ContactUSController@create');
+ 
+Route::post('contact', 'ContactUSController@store');
+
+
