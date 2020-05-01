@@ -48,14 +48,14 @@ class ProductController extends Controller
             'image' => 'required|file|image|max:1999',
         ]);
 
-        if($request->hasfile('image')){
+        if($request->hasFile('image')){
             $filenameWithExt = $request->file('image')->getClientOriginalName();
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
             $extension = $request->file('image')->getClientOriginalExtension();
             $fileNameToStore = $filename.'_'.time().'.'.$extension;
             $path = $request->file('image')->storeAs('public/images', $fileNameToStore);
         }
-        
+
         $product = new Product();
         $product->brand = $request->input('brand');
         $product->category = $request->input('category');
@@ -108,7 +108,7 @@ class ProductController extends Controller
             'name' => 'required',
             'price' => 'required|numeric|min:0',
             'description' => 'required',
-            'image' => 'required|file|image|max:1999',
+            'image' => 'file|image|max:1999',
         ]);
 
         if($request->hasFile('image')){
