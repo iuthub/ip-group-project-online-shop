@@ -33,3 +33,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('admin/home', 'HomeController@adminHome')->name('admin.home')->middleware('is_admin');
+
+Route:: middleware('auth')->group(function () {
+
+Route::get('/my-profile', 'UsersController@edit')->name('users.edit');
+Route::patch('/my-profile', 'UsersController@update')->name('users.update');  
+
+});

@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('date_of_birth'); 
             $table->string('city');
             $table->string('passport_num');
+            $table->string('telephone_num');
             $table->string('postal_code');
             $table->string('email');
             $table->timestamp('email_verified_at')->nullable();
