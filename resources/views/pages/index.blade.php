@@ -24,6 +24,20 @@
     </div>
     <div class="filter">
       
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://images.pexels.com/photos/867464/pexels-photo-867464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="d-block w-100" alt="Milk Chocolate Image">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Milk Chocolate</h5>
+         
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="css/white_upgrade.jpg" class="d-block w-100" alt="White Chocolate Image">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>White Chocolate</h5>
+      </div>
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
