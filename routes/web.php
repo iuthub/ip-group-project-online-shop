@@ -22,8 +22,6 @@ Route::get('pages/signup', 'SignUpController@signup');
 
 Route::get('pages/signin', 'SignUpController@signin');
 
-Route::get('/item', 'PageController@item');
-
 Route::resource('products','ProductController');
 
 Route::get('/admin/item', 'PageController@adminItem');
