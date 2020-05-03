@@ -9,12 +9,12 @@ class PageController extends Controller
     public function index() {
         return view('pages.index');
     }
-
-    public function contactus(){
-        return view('pages.contactus');
-    }
     
-    public function item() {
-        return view('pages.item');
+    public function adminItem() {
+        return view('pages.admin.item');
     }
+
+    public function products() {
+        return view('pages.products');
+}
 }

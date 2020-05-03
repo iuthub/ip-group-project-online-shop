@@ -28,6 +28,15 @@ Route::get('/admin/item', 'PageController@adminItem');
 
 Route::get('/admin/items', 'PageController@adminItems');
 
+ 
+
+ 
+
+Route::get('/contact', 'ContactUSController@create');
+ 
+Route::post('contact', 'ContactUSController@store');
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
