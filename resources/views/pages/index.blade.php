@@ -41,11 +41,5 @@
 
 @section('content')
 @yield('content')
-<div class="jumbotron align="center">
-  <h1 class="display-4">Hello!</h1>
-  <p class="lead">This is an online shop Choco World presenting cholocate of  various brands</p>
-  <hr class="my-4">
-  
-  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-</div>
+@endsection
 
