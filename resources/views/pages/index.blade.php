@@ -44,14 +44,7 @@
     @endforeach
   </div>
   <div class="row justify-content-center my-4">
-    <ul class="pagination d-flex justify-content-center">
-      <li class="page-item shadow"><a href="#" class="page-link">Last</a></li>
-      <li class="page-item shadow active"><a href="#" class="page-link">1</a></li>
-      <li class="page-item shadow"><a href="#" class="page-link">2</a></li>
-      <li class="page-item shadow"><a href="#" class="page-link">3</a></li>
-      <li class="page-item shadow"><a href="#" class="page-link">4</a></li>
-      <li class="page-item shadow"><a href="#" class="page-link">Next</a></li>
-    </ul>
+    {!! $products->links() !!}
   </div>
 </div>
 @endsection
