@@ -9,7 +9,7 @@
                 <div class="card-header">{{ __('My profile') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('users.update') }}">
+                    <form method="POST" action="{{ route('users.update') }}" novalidate="novalidate">
                          @method('patch')
                         @csrf
 

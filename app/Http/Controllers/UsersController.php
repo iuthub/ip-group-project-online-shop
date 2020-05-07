@@ -70,20 +70,32 @@ class UsersController extends Controller
     {
         $request->validate([
             'name' => ['required', 'regex:/^[a-zA-Z0-9]{5,}$/'],
-            'postal_code' => ['required', 'unique:users', 'regex:/\d{7}/'],
-            'email' => ['required', 'unique:users', 'regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'.auth()->id()], 
-            'password' => ['sometimes', 'nullable', 'string', 'min:8', 'confirmed'],
+            'postal_code' => ['required', 'regex:/\d{7}/'],
+            'email' => 'required|string|email|max:255|unique:users,email,'.auth()->id(),
+            'password' => 'sometimes|nullable|string|min:6|confirmed',
+            // 'email' => 'required|unique:users|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix|email,' .auth()->id(),
+            // 'password' => 'sometimes|nullable|string|min:8|confirmed',
             //'password' => ['required', 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{5,})/'],
-            'telephone_num' => ['required', 'unique:users', 'regex:/^\+998-\d{2}-\d{7}$/'],
+            'telephone_num' => ['required', 'regex:/^\+998-\d{2}-\d{7}$/'],
             'city' => ['required', 'regex:/^[a-zA-Z]+$/'],
             'date_of_birth' => ['required', 'regex:/^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[12])\/(19|20)\d{2}$/'],
-            'passport_num' => ['required', 'unique:users', 'regex:/^(AA|AB)(\d){7}$/'],
+            'passport_num' => ['required', 'regex:/^(AA|AB)(\d){7}$/'],
         ]);
 
+        $user = auth()->user();
+        $input = $request->except('password', 'password_confirmation');
+
         if (! $request->filled('password')) {
-            return "PASSWORD NOT FILLED";
+            $user->fill($input)->save();
+
+            return back()->with('success_message', 'Profile updated successfully!');
         } 
-        return "PASSWORD FILLED";
+        
+        $user->password = bcrypt($request->password);
+        $user->fill($input)->save();
+
+        return back()->with('success_message', 'Profile (and password) updated successfully!');
+
       // dd($request->all());
     }
 
