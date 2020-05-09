@@ -64,7 +64,6 @@ class ProductController extends Controller
         $product->description = $request->input('description');
         $product->image = $fileNameToStore;
         $product->save();
-        //Product::create($request->all());
         
         return redirect()->route('products.index')
                         ->with('success','Product created successfully.');
@@ -130,8 +129,7 @@ class ProductController extends Controller
         }
         $product->save(); 
 
-        return redirect()->route('products.index')
-                        ->with('success','Product updated successfully');
+        return redirect()->route('products.index')->with('success','Product updated successfully');
     }
 
     /**
@@ -148,7 +146,6 @@ class ProductController extends Controller
             Storage::delete('public/images/'.$product->image);
         }
   
-        return redirect()->route('products.index')
-                        ->with('success','Product deleted successfully');
+        return redirect()->route('products.index')->with('success','Product deleted successfully');
     }
 }

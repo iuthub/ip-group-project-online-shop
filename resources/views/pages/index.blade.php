@@ -35,7 +35,7 @@
       <div class="card product-card d-flex align-items-center" style="width: 24rem;">
         <img class="card-img-top" src="/storage/images/{{$product->image}}" alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title">{{ $product->brand }}</h5>
+          <h5 class="card-title">{{ $product->category }} Chocolate</h5>
           <p class="card-text">Price: ${{ $product->price }}</p>
           <a href="#" class="btn btn-primary">More...</a>
         </div>

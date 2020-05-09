@@ -9,10 +9,10 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
     public function index() {
-        $products = Product::latest()->paginate(6);
-        return view('pages.index',compact('products'))->with('i', (request()->input('page', 1) - 1) * 6);
+        $products = Product::orderBy('price', 'asc')->paginate(3);
+        return view('pages.index',compact('products'))->with('i', (request()->input('page', 1) - 1) * 3);
     }
-    
+
     public function adminItem() {
         return view('pages.admin.item');
     }
