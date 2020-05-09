@@ -13,11 +13,9 @@ class PageController extends Controller
         return view('pages.index',compact('products'))->with('i', (request()->input('page', 1) - 1) * 3);
     }
 
-    public function adminItem() {
-        return view('pages.admin.item');
+    public function show($id)
+    {
+        $product = Product::where('id', $id)->firstOrFail();
+        return view('pages.show')->with('product',$product);
     }
-
-    public function products() {
-        return view('pages.products');
-}
 }

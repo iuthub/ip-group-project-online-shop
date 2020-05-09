@@ -33,11 +33,11 @@
     @foreach ($products as $product)
     <div class="card-wrapper col-md-4 d-flex justify-content-center align-items-center px-1 py-1">
       <div class="card product-card d-flex align-items-center" style="width: 24rem;">
-        <img class="card-img-top" src="/storage/images/{{$product->image}}" alt="Card image cap">
+        <a href="{{ route('shop.show',$product->id) }}"><img class="card-img-top" src="/storage/images/{{$product->image}}" alt="Card image cap"></a>
         <div class="card-body">
           <h5 class="card-title">{{ $product->category }} Chocolate</h5>
           <p class="card-text">Price: ${{ $product->price }}</p>
-          <a href="#" class="btn btn-primary">More...</a>
+        {{-- <a href="{{ route('pages.show',$product->slug) }}" class="btn btn-primary">More...</a> --}}
         </div>
       </div>
     </div>
