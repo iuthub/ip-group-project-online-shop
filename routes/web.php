@@ -12,29 +12,20 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'PageController@index');
+Route::resource('/','PageController');
 
-Route::get('pages/contactus', 'PageController@contactus');
+Route::resource('/pages','PageController');
 
-Route::get('/profiles', 'PageController@profile');
-
-Route::get('pages/signup', 'SignUpController@signup');
-
-Route::get('pages/signin', 'SignUpController@signin');
+Route::get('/pages/{product}','PageController@show')->name('shop.show');
 
 Route::resource('products','ProductController');
 
-Route::get('/admin/item', 'PageController@adminItem');
-
-Route::get('/admin/items', 'PageController@adminItems');
-
 Route::get('/contact', 'ContactUSController@create');
  
-Route::post('contact', 'ContactUSController@store');
-
+Route::post('/contact', 'ContactUSController@store');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('admin/home', 'HomeController@adminHome')->name('admin.home')->middleware('is_admin');
+Route::get('/products', 'HomeController@adminHome')->name('products')->middleware('is_admin');
