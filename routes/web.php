@@ -13,19 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::resource('/','PageController');
-
 Route::resource('/pages','PageController');
-
 Route::get('/pages/{product}','PageController@show')->name('shop.show');
 
 Route::resource('products','ProductController');
 
 Route::get('/contact', 'ContactUSController@create');
- 
 Route::post('/contact', 'ContactUSController@store');
 
 Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/products', 'HomeController@adminHome')->name('products')->middleware('is_admin');
+
+Route::get('/cart', 'CartController@index')->name('cart.index');
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/products', 'HomeController@adminHome')->name('products')->middleware('is_admin');
