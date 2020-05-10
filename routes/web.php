@@ -30,6 +30,8 @@ Route::get('/cart', 'CartController@index')->name('cart.index')->middleware('aut
 Route::get('/cart/confirm', 'CartController@confirm')->name('cart.confirm')->middleware('auth');
 Route::get('/cart/delete/{id}', 'CartController@delete')->name('cart.delete')->middleware('auth');
 
+Route::get('/search', 'PageController@search')->name('search');
+
 Route:: middleware('auth')->group(function () {
 
     Route::get('/my-profile', 'UsersController@edit')->name('users.edit');

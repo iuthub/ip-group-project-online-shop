@@ -44,11 +44,14 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('about') }}">About Us</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('search') }}">Search</a>
+                        </li>
                         <!-- Authentication Links -->
                         @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('contact.create') }}">{{ __('Contact Us') }}</a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('contact.create') }}">{{ __('Contact Us') }}</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>

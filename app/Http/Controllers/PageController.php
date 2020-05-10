@@ -10,11 +10,6 @@ use Illuminate\Support\Facades\Auth;
 
 class PageController extends Controller
 {
-    public function index() {
-        $products = Product::orderBy('price', 'asc')->paginate(3);
-        return view('pages.index',compact('products'))->with('i', (request()->input('page', 1) - 1) * 3);
-    }
-
     public function show($id, Request $request)
     {
         $product = Product::where('id', $id)->firstOrFail();
@@ -36,5 +31,16 @@ class PageController extends Controller
         }
 
         return view('pages.show')->with('product',$product);
+    }
+
+    public function search(Request $request) {
+        $search_line = $request->input("search-line");
+        $items = [];
+        
+        if($search_line) {
+            $items = Product::where("name", "LIKE", "%$search_line%")->get();
+        }
+        
+        return view('pages.search', ["items" => $items]);
     }
 }
