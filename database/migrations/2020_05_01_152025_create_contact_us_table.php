@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrdersTable extends Migration
+class CreateContactUsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
-            $table->id();
+        Schema::create('contactus', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('username');
+            $table->string('email');
+            $table->text('message');
             $table->timestamps();
-            $table->foreignId('uID')->references('id')->on('users');
-            $table->foreignId('uCart')->references('id')->on('cart');
-            $table->string('status');
         });
     }
 
@@ -29,6 +29,6 @@ class CreateOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('contactus');
     }
 }

@@ -7,14 +7,14 @@
             <h2>Add a new product</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('products.index') }}"> Back</a>
+            <a class="btn btn-primary" href="{{ route('admin.products.index') }}"> Back</a>
         </div>
     </div>
 </div>
    
 @if ($errors->any())
     <div class="alert alert-danger">
-        <strong>Whoops!</strong> Please, fill our required fields.<br><br>
+        <strong>Whoops!</strong> Please, fill all required fields.<br><br>
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
@@ -23,7 +23,7 @@
     </div>
 @endif
    
-<form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
   
      <div class="row">

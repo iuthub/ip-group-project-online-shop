@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('content')
 
 <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -7,45 +7,47 @@
     <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
     <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
   </ol>
-  <div class="carousel-inner">
+  <div class="carousel-inner" style="height: 500px">
     <div class="carousel-item active">
       <img src="https://images.unsplash.com/photo-1511381939415-e44015466834?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1438&q=80" class="d-block w-100" alt="Dark Chocolate Image">
       <div class="carousel-caption d-none d-md-block">
         <h5>Dark Chocolate</h5>
-      
       </div>
     </div>
-    <div class="carousel-item">
+    <div class="carousel-item" style="height: 500px">
       <img src="https://images.pexels.com/photos/867464/pexels-photo-867464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="d-block w-100" alt="Milk Chocolate Image">
       <div class="carousel-caption d-none d-md-block">
         <h5>Milk Chocolate</h5>
-         
       </div>
     </div>
-    <div class="carousel-item">
+    <div class="carousel-item" style="height: 500px">
       <img src="css/white_upgrade.jpg" class="d-block w-100" alt="White Chocolate Image">
       <div class="carousel-caption d-none d-md-block">
         <h5>White Chocolate</h5>
       </div>
     </div>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
 </div>
 
-@section('content')
-@yield('content')
-<div class="jumbotron align="center">
-  <h1 class="display-4">Hello!</h1>
-  <p class="lead">This is an online shop Choco World presenting cholocate of  various brands</p>
-  <hr class="my-4">
-  
-  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-</div>
 
+
+<div class="container">
+  <div class="row my-4">
+    @foreach ($products as $product)
+    <div class="card-wrapper col-md-4 d-flex justify-content-center align-items-center px-1 py-1">
+      <div class="card product-card d-flex align-items-center" style="width: 24rem;">
+        <a href="{{ route('shop.show',$product->id) }}"><img class="card-img-top" src="/storage/images/{{$product->image}}" alt="Card image cap"></a>
+        <div class="card-body">
+          <h5 class="card-title">{{ $product->category }} Chocolate</h5>
+          <p class="card-text">Price: ${{ $product->price }}</p>
+        {{-- <a href="{{ route('pages.show',$product->slug) }}" class="btn btn-primary">More...</a> --}}
+        </div>
+      </div>
+    </div>
+    @endforeach
+  </div>
+  <div class="row justify-content-center my-4">
+    {!! $products->links() !!}
+  </div>
+</div>
+@endsection

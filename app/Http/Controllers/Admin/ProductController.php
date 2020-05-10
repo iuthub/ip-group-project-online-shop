@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -43,21 +44,19 @@ class ProductController extends Controller
             'brand' => 'required',
             'category' => 'required',
             'name' => 'required',
-            'price' => 'required',
+            'price' => 'required|numeric|min:0',
             'description' => 'required',
-            'image' => 'required|max:1999',
+            'image' => 'required|file|image|max:1999',
         ]);
 
-        if($request->hasfile('image')){
+        if($request->hasFile('image')){
             $filenameWithExt = $request->file('image')->getClientOriginalName();
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
             $extension = $request->file('image')->getClientOriginalExtension();
             $fileNameToStore = $filename.'_'.time().'.'.$extension;
             $path = $request->file('image')->storeAs('public/images', $fileNameToStore);
-        }else{
-            $fileNameToStore = 'noimage.jpg';
         }
-  
+
         $product = new Product();
         $product->brand = $request->input('brand');
         $product->category = $request->input('category');
@@ -66,7 +65,6 @@ class ProductController extends Controller
         $product->description = $request->input('description');
         $product->image = $fileNameToStore;
         $product->save();
-        //Product::create($request->all());
         
         return redirect()->route('products.index')
                         ->with('success','Product created successfully.');
@@ -101,18 +99,19 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
-    {
+    
+    public function update(Request $request, $id){
+
         $request->validate([
             'brand' => 'required',
             'category' => 'required',
             'name' => 'required',
-            'price' => 'required',
+            'price' => 'required|numeric|min:0',
             'description' => 'required',
-            'image' => 'required|max:1999',
+            'image' => 'file|image|max:1999',
         ]);
 
-        if($request->hasfile('image')){
+        if($request->hasFile('image')){
             $filenameWithExt = $request->file('image')->getClientOriginalName();
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
             $extension = $request->file('image')->getClientOriginalExtension();
@@ -120,21 +119,18 @@ class ProductController extends Controller
             $path = $request->file('image')->storeAs('public/images', $fileNameToStore);
         }
 
-        //$product = Product::find($id);
-        /*$product->brand = $request->input('brand');
+        $product = Product::find($id);
+        $product->brand = $request->input('brand');
         $product->category = $request->input('category');
         $product->name = $request->input('name');
         $product->price = $request->input('price');
-        $product->description = $request->input('description');*/
-        if($request->hasfile('image')){
+        $product->description = $request->input('description');
+        if($request->hasFile('image')){
             $product->image = $fileNameToStore;
         }
-        //$product->save();
-  
-        //$product->update($request->all());
-  
-        return redirect()->route('products.index')
-                        ->with('success','Product updated successfully');
+        $product->save(); 
+
+        return redirect()->route('products.index')->with('success','Product updated successfully');
     }
 
     /**
@@ -151,7 +147,6 @@ class ProductController extends Controller
             Storage::delete('public/images/'.$product->image);
         }
   
-        return redirect()->route('products.index')
-                        ->with('success','Product deleted successfully');
+        return redirect()->route('products.index')->with('success','Product deleted successfully');
     }
 }

@@ -1,13 +1,13 @@
-@extends('products.layout')
- 
+@extends('layouts.app')
 @section('content')
+<div class="container">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Admin</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('products.create') }}"> Add a new product</a>
+                <a class="btn btn-success" href="{{ route('admin.products.create') }}"> Add a new product</a>
             </div>
         </div>
     </div>
@@ -17,7 +17,7 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-   
+
     <table class="table table-bordered">
         <tr>
             <th>Brand</th>
@@ -31,11 +31,11 @@
             <td>{{ $product->category }}</td>
             <td>{{ $product->price }}</td>
             <td>
-                <form action="{{ route('products.destroy',$product->id) }}" method="POST">
+                <form action="{{ route('admin.products.destroy',$product->id) }}" method="POST">
    
-                    <a class="btn btn-info" href="{{ route('products.show',$product->id) }}">Details</a>
+                    <a class="btn btn-info" href="{{ route('admin.products.show',$product->id) }}">Details</a>
     
-                    <a class="btn btn-primary" href="{{ route('products.edit',$product->id) }}">Edit</a>
+                    <a class="btn btn-primary" href="{{ route('admin.products.edit',$product->id) }}">Edit</a>
    
                     @csrf
                     @method('DELETE')
@@ -47,6 +47,7 @@
         @endforeach
     </table>
   
-    {!! $products->links() !!}
-      
+        {!! $products->links() !!}
+</div>
+    
 @endsection

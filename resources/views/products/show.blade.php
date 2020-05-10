@@ -1,53 +1,38 @@
 @extends('products.layout')
 @section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2> Details</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('products.index') }}"> Back</a>
-            </div>
+<div class="container">
+    <div class="row justify-content-center py-4">
+        <h2 class="display-3">Details</h2>
+        <div class="pull-right">
+            <a class="btn btn-primary" href="{{ route('admin.products.index') }}"> Back</a>
         </div>
     </div>
-   
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Brand:</strong>
+    <div class="row align-items-center">
+        <div class="col-md-6 bg-light align-self-center image-position">
+            <img style="width:100%" src="/storage/images/{{$product->image}}">
+        </div>
+        <div class="col-md-6 bg-light px-5 forms">
+            <div class="form-group lead">
+                <strong class="lead d-flex">Brand:</strong>
                 {{ $product->brand }}
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Category:</strong>
+            <div class="form-group lead">
+                <strong class="lead d-flex">Category:</strong>
                 {{ $product->category }}
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Name:</strong>
+            <div class="form-group lead">
+                <strong class="lead d-flex">Name:</strong>
                 {{ $product->name }}
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Price: $</strong>
+            <div class="form-group lead">
+                <strong class="lead d-flex">Price: $</strong>
                 {{ $product->price }}
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Description:</strong>
+            <div class="form-group lead">
+                <strong class="lead d-flex">Description:</strong>
                 {{ $product->description }}
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Image:</strong>
-                <br><br>
-            <img style="width:100%" src="/storage/images/{{$product->image}}">
-            </div>
-        </div>
     </div>
+</div>
 @endsection
