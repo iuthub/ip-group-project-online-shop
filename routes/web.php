@@ -18,8 +18,8 @@ Route::get('/pages/{product}','PageController@show')->name('shop.show');
 
 Route::resource('products','ProductController');
 
-Route::get('/contact', 'ContactUSController@create');
-Route::post('/contact', 'ContactUSController@store');
+Route::get('/contact', 'ContactUSController@create')->name('contact.create');
+Route::post('/contact', 'ContactUSController@store')->name('contact.store');;
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
@@ -29,3 +29,12 @@ Route::get('/cart', 'CartController@index')->name('cart.index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('admin/home', 'HomeController@adminHome')->name('admin.home')->middleware('is_admin');
+
+Route:: middleware('auth')->group(function () {
+
+Route::get('/my-profile', 'UsersController@edit')->name('users.edit');
+Route::patch('/my-profile', 'UsersController@update')->name('users.update');  
+
+});

@@ -50,9 +50,15 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'name' => ['required', 'regex:/^[a-zA-Z0-9]{5,}$/'],
+            'postal_code' => ['required', 'regex:/\d{7}/'],
+            'email' => ['required', 'unique:users', 'regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            //'password' => ['required', 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{5,})/'],
+            'telephone_num' => ['required', 'unique:users', 'regex:/^\+998-\d{2}-\d{7}$/'],
+            'city' => ['required', 'regex:/^[a-zA-Z]+$/'],
+            'date_of_birth' => ['required', 'regex:/^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[12])\/(19|20)\d{2}$/'],
+            'passport_num' => ['required', 'unique:users', 'regex:/^(AA|AB)(\d){7}$/'],
         ]);
     }
 
@@ -67,6 +73,11 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'city'=>$data['city'],
+            'postal_code'=>$data['postal_code'],
+            'passport_num'=>$data['passport_num'],
+            'telephone_num'=>$data['telephone_num'],
+            'date_of_birth'=>$data['date_of_birth'],
             'password' => Hash::make($data['password']),
         ]);
     }
