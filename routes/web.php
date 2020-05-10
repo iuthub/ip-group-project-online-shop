@@ -12,22 +12,20 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'PageController@index');
+Route::resource('/','PageController');
+Route::resource('/pages','PageController');
+Route::get('/pages/{product}','PageController@show')->name('shop.show');
 
-Route::get('pages/contactus', 'PageController@contactus');
+Route::resource('products','ProductController');
 
-Route::get('/profiles', 'PageController@profile');
+Route::get('/contact', 'ContactUSController@create');
+Route::post('/contact', 'ContactUSController@store');
 
-Route::get('pages/signup', 'SignUpController@signup');
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/products', 'HomeController@adminHome')->name('products')->middleware('is_admin');
 
-Route::get('pages/signin', 'SignUpController@signin');
-
-Route::get('/item', 'PageController@item');
-
-Route::get('/admin/item', 'PageController@adminItem');
-
-Route::get('/admin/items', 'PageController@adminItems');
-
+Route::get('/cart', 'CartController@index')->name('cart.index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -40,3 +38,4 @@ Route::get('/my-profile', 'UsersController@edit')->name('users.edit');
 Route::patch('/my-profile', 'UsersController@update')->name('users.update');  
 
 });
+
