@@ -4,6 +4,16 @@
 <div class="container">
     <h1>About us</h1>
     <img src="images/aboutus.jpg">
-    <p class="mt-4 text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem, eum molestiae fugiat in sint ipsam dignissimos beatae eligendi quisquam eveniet aut illo voluptatem iure, quia iste nesciunt omnis officiis. Dolorem, consequatur. Saepe culpa odio maxime, voluptas ut, delectus in quaerat ratione, accusamus doloribus esse blanditiis totam. Delectus ullam atque maiores, debitis quasi similique laboriosam molestias, animi in nihil tempore ipsam aspernatur laudantium. Quae voluptatem saepe fuga ipsum cum expedita unde voluptatum sint alias doloribus. Distinctio quaerat quis iure magni, commodi velit harum quos? Minus nihil eos explicabo quaerat assumenda! Aperiam, nobis accusamus, numquam aliquam eveniet optio, ea commodi saepe corrupti id dignissimos unde. Accusantium maxime id est. Nihil, amet vero, laborum porro corporis impedit earum ab consequatur quos magni iusto repudiandae error modi maiores eius et sit. Numquam natus recusandae tempore maxime officia consequatur sed dignissimos, veniam deleniti quos eaque ratione. Neque fugit vitae ut excepturi iste officia repellat omnis aut molestias magnam quos, enim, dolores consequuntur culpa quas esse eos animi ab unde, repellendus nisi nulla corrupti! Odit beatae alias perspiciatis voluptate sit laborum quod dolorum ad quos dolores, incidunt consequatur possimus, repellendus, blanditiis odio tenetur libero voluptates excepturi. Odit eos vitae dolorem. In corporis, fuga saepe eum debitis quidem eos minima at repellat inventore fugiat id, sint culpa iusto voluptatem non nemo cum numquam cupiditate dignissimos. Magni minus unde itaque et hic natus nisi dolores sit corporis esse reiciendis repudiandae placeat quia nam, culpa quod architecto inventore, iste libero quis illum quisquam officiis voluptatibus nobis. Veniam, officiis nisi! Beatae, aut veritatis amet in sed nihil quibusdam sapiente dolor! Temporibus ad doloremque deleniti tenetur maiores, voluptatibus iusto, beatae qui est minus inventore magnam modi sunt! Nam ipsum enim adipisci aut dicta vel neque deleniti debitis quisquam, magni, aperiam dolorem dolore ratione odit iste, laudantium odio suscipit accusantium unde reprehenderit!</p>
+    <p class="mt-4 text-justify">
+        <strong>Don't fall in love! Fall in chocolate</strong>
+        <br>
+        Nine out of ten people love chocolate, and the tenth person is always lying! 
+        <br>
+        Buy Chocolate Online for You and Your Loved Ones. Special occasions are just never complete without chocolates. 
+        <br>
+        That's why, at Online Chocolate Store, we have made it really easy to buy chocolates online – the finest varieties from across the globe.
+        <br>
+        Speedy delivery, exquisite packaging. Order chocolates online from us and give your loved ones a taste of your love!
+    </p>
 </div>
 @endsection
