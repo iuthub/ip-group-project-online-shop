@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="pull-right">
-        <a class="btn btn-primary" href="{{ route('pages.index') }}"> Back</a>
+        <a class="btn btn-primary" href="{{ url()->previous() }}"> Back</a>
     </div>
     <div class="row align-items-center">
         <div class="col-md-6 bg-light align-self-center image-position">

@@ -16,7 +16,7 @@ use Illuminate\Routing\Router;
 
 Auth::routes();
 
-Route::get('/','HomeController@main');
+Route::get('/','HomeController@main')->name('mainHome');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/about', 'HomeController@about')->name('about');
 
