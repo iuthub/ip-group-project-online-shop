@@ -9,11 +9,9 @@
       <div class="col-2">
         <button type="submit" class="btn btn-primary">Search</button>
       </div>
-      {{-- Search: {{ $items ?? '' }} --}}
     </div>
   </form>
   <div class="row">
-
     @if (count($items) >= 1)
     @foreach ($items as $item)
     <div class="card-wrapper col-md-4 d-flex justify-content-center align-items-center mt-3">
