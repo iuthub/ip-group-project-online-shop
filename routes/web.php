@@ -23,7 +23,7 @@ Route::post('/contact', 'ContactUSController@store');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/products', 'HomeController@adminHome')->name('products')->middleware('is_admin');
+Route::get('/products/index', 'HomeController@adminHome')->name('products')->middleware('is_admin');
 
 Route::get('/cart', 'CartController@index')->name('cart.index');
 Auth::routes();
