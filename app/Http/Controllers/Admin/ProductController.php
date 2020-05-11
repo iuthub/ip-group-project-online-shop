@@ -130,7 +130,7 @@ class ProductController extends Controller
         }
         $product->save(); 
 
-        return redirect('admin/products')->with('success','Product updated successfully');
+        return redirect()->route('products.index')->with('success','Product updated successfully');
     }
 
     /**
