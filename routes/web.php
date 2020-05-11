@@ -45,7 +45,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'is_a
 
     $router->resource('products','ProductController', [
         "names" => [
-            'index' => 'admin.products.index'
+            'index' => 'products.index'
         ]
     ]);
     $router->resource('orders','OrdersController');
