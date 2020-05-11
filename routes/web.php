@@ -43,7 +43,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'is_a
 
     $router->get('/home', 'MainController@index')->name('home');
 
-    $router->resource('products','ProductController');
+    $router->resource('products','ProductController', [
+        "names" => [
+            'index' => 'products.index',
+            'store' => 'products.store'
+        ]
+    ]);
     $router->resource('orders','OrdersController');
     $router->get('orders/confirm/{id}','OrdersController@confirm')->name('orders.confirm');
 });
