@@ -66,7 +66,7 @@ class ProductController extends Controller
         $product->image = $fileNameToStore;
         $product->save();
         
-        return redirect()->route('products.index')
+        return redirect()->route('admin.products.index')
                         ->with('success','Product created successfully.');
     }
 
@@ -147,6 +147,6 @@ class ProductController extends Controller
             Storage::delete('public/images/'.$product->image);
         }
   
-        return redirect()->route('products.index')->with('success','Product deleted successfully');
+        return redirect()->route('admin.products.index')->with('success','Product deleted successfully');
     }
 }
